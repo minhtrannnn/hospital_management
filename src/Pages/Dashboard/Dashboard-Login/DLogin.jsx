@@ -157,10 +157,10 @@ const DLogin = () => {
       <ToastContainer />
 
       <div className="mainLoginPage">
-        <div className="leftside">
+        {/* <div className="leftside">
           <img src={banner} alt="banner" />
-        </div>
-        <div className="rightside">
+        </div> */}
+        <div className="center">
           <h1>Login</h1>
           <div>
             <Radio.Group
