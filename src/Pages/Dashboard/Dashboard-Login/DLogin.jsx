@@ -161,7 +161,7 @@ const DLogin = () => {
           <img src={banner} alt="banner" />
         </div> */}
         <div className="center">
-          <h1>Login</h1>
+          <h1>Login Portal</h1>
           <div>
             <Radio.Group
               value={placement}
