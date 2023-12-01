@@ -27,18 +27,6 @@
   background-color: white;
 }
 
-.Profileimg {
-  margin: auto;
-  width: 26%;
-  margin-top: 2rem;
-}
-
-.Profileimg img {
-  width: 5rem;
-  border-radius: 5rem;
-  /* border: 1px solid red; */
-}
-
 .radiobutton {
   width: 33%;
   font-size: 1.2rem;
@@ -63,6 +51,7 @@
 
 .center button {
   width: 100%;
+ 
   height: 2.5rem;
   border-radius: 2rem;
   cursor: pointer;
