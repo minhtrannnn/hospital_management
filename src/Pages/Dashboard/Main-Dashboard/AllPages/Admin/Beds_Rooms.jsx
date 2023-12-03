@@ -39,13 +39,13 @@ const Beds_Rooms = () => {
               <table>
                 <thead>
                   <tr>
-                    <th>Room</th>
-                    <th>Bed</th>
+                    <th>Items</th>
+                    <th>Quantity</th>
                     <th>Status</th>
-                    <th>Patient</th>
-                    <th>Disease</th>
-                    <th>Doctor</th>
-                    <th>Discharge</th>
+                    <th>Provider</th>
+                    <th>Expration Date</th>
+                    <th>Location</th>
+                    <th>Price</th>
                   </tr>
                 </thead>
                 <tbody>

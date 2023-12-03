@@ -29,7 +29,7 @@ const DLogin = () => {
 
   // ************************************************
   const [Loading, setLoading] = useState(false);
-  const [placement, SetPlacement] = useState("Nurse");
+  const [placement, SetPlacement] = useState("Staff");
   const [formvalue, setFormvalue] = useState({
     ID: "",
     password: "",
@@ -44,29 +44,30 @@ const DLogin = () => {
     e.preventDefault();
     setLoading(true);
     if (formvalue.ID !== "" && formvalue.password !== "") {
-      if (placement === "Nurse") {
-        let data = {
-          ...formvalue,
-          nurseID: formvalue.ID,
-        };
-        dispatch(NurseLogin(data)).then((res) => {
-          if (res.message === "Successful") {
-            notify("Login Successful");
-            setLoading(false);
-            return navigate("/dashboard");
-          }
-          if (res.message === "Wrong credentials") {
-            setLoading(false);
+      // if (placement === "Doctor and Nurse") {
+      //   let data = {
+      //     ...formvalue,
+      //     nurseID: formvalue.ID,
+      //   };
+      //   dispatch(NurseLogin(data)).then((res) => {
+      //     if (res.message === "Successful") {
+      //       notify("Login Successful");
+      //       setLoading(false);
+      //       return navigate("/dashboard");
+      //     }
+      //     if (res.message === "Wrong credentials") {
+      //       setLoading(false);
 
-            notify("Wrong credentials");
-          }
-          if (res.message === "Error") {
-            setLoading(false);
+      //       notify("Wrong credentials");
+      //     }
+      //     if (res.message === "Error") {
+      //       setLoading(false);
 
-            notify("Something went Wrong, Please Try Again");
-          }
-        });
-      } else if (placement === "Doctor") {
+      //       notify("Something went Wrong, Please Try Again");
+      //     }
+      //   });
+      // } else 
+      if (placement === "Staff") {
         let data = {
           ...formvalue,
           docID: formvalue.ID,
@@ -168,11 +169,11 @@ const DLogin = () => {
               onChange={placementChange}
               className={"radiogroup"}
             >
-              <Radio.Button value="Nurse" className={"radiobutton"}>
-                Nurse
-              </Radio.Button>
-              <Radio.Button value="Doctor" className={"radiobutton"}>
-                Doctor
+              {/* <Radio.Button value="Doctor and Nurse" className={"radiobutton"}>
+                Doctor and Nurse
+              </Radio.Button> */}
+              <Radio.Button value="Staff" className={"radiobutton"}>
+                Staff
               </Radio.Button>
               <Radio.Button value="Admin" className={"radiobutton"}>
                 Admin

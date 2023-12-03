@@ -2,31 +2,31 @@ import * as types from "./types";
 import axios from "axios";
 
 //login user
-export const NurseLogin = (data) => async (dispatch) => {
-  try {
-    dispatch({ type: types.LOGIN_NURSE_REQUEST });
-    const res = await axios.post(
-      "https://zany-gray-clam-gear.cyclic.app/nurses/login",
-      data
-    );
-    dispatch({
-      type: types.LOGIN_NURSE_SUCCESS,
-      payload: {
-        message: res.data.message,
-        user: res.data.user,
-        token: res.data.token,
-      },
-    });
-    return res.data;
-  } catch (error) {
-    dispatch({
-      type: types.LOGIN_NURSE_ERROR,
-      payload: {
-        message: error,
-      },
-    });
-  }
-};
+// export const NurseLogin = (data) => async (dispatch) => {
+//   try {
+//     dispatch({ type: types.LOGIN_NURSE_REQUEST });
+//     const res = await axios.post(
+//       "https://zany-gray-clam-gear.cyclic.app/nurses/login",
+//       data
+//     );
+//     dispatch({
+//       type: types.LOGIN_NURSE_SUCCESS,
+//       payload: {
+//         message: res.data.message,
+//         user: res.data.user,
+//         token: res.data.token,
+//       },
+//     });
+//     return res.data;
+//   } catch (error) {
+//     dispatch({
+//       type: types.LOGIN_NURSE_ERROR,
+//       payload: {
+//         message: error,
+//       },
+//     });
+//   }
+// };
 
 //login user
 export const DoctorLogin = (data) => async (dispatch) => {
@@ -55,6 +55,7 @@ export const DoctorLogin = (data) => async (dispatch) => {
     });
   }
 };
+
 
 //login user
 export const AdminLogin = (data) => async (dispatch) => {
@@ -269,3 +270,67 @@ export const forgetPassword = (data) => async (dispatch) => {
     console.log(error);
   }
 };
+
+
+// // Assuming you have 'mysql2' and 'express' installed
+// const mysql = require('mysql2');
+// const express = require('express');
+// const bodyParser = require('body-parser');
+// const axios = require('axios');
+
+// const app = express();
+// const port = process.env.PORT || 3000;
+
+// app.use(bodyParser.json());
+
+// // MySQL connection
+// const connection = mysql.createConnection({
+//   host: 'localhost',
+//   user: 'root',
+//   password: 'root',
+//   database: 'hospitalmanagement',
+// });
+
+// // Define your MySQL table schema
+// const createTableQuery = `
+//   CREATE TABLE IF NOT EXISTS doctors (
+//     id INT AUTO_INCREMENT PRIMARY KEY,
+//     username VARCHAR(255) NOT NULL,
+//     password VARCHAR(255) NOT NULL
+//   )
+// `;
+
+// connection.query(createTableQuery, (err) => {
+//   if (err) {
+//     console.error('Error creating table:', err);
+//   } else {
+//     console.log('Table created or already exists');
+//   }
+// });
+
+// // API endpoint to handle doctor login
+// app.post('/doctors/login', async (req, res) => {
+//   const { username, password } = req.body;
+
+//   // Assuming you have a 'doctors' table
+//   const loginQuery = 'SELECT * FROM doctors WHERE username = ? AND password = ?';
+  
+//   connection.query(loginQuery, [username, password], (error, results) => {
+//     if (error) {
+//       console.error('Error executing login query:', error);
+//       res.status(500).json({ message: 'Internal Server Error' });
+//     } else {
+//       if (results.length > 0) {
+//         const user = results[0];
+//         const token = 'your-auth-token';  // You might generate a token here
+//         res.json({ message: 'Login successful', user, token });
+//       } else {
+//         res.status(401).json({ message: 'Invalid username or password' });
+//       }
+//     }
+//   });
+// });
+
+// app.listen(port, () => {
+//   console.log(`Server is running on port ${port}`);
+// });
